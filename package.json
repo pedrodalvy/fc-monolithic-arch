@@ -1,0 +1,14 @@
+{
+  "name": "fc-monolithic-arch",
+  "version": "1.0.0",
+  "description": "This project is a practical implementation of Monolithic Architecture concepts using TypeScript.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pedro Dalvy <pedrodalvy@outlook.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "5.3.3"
+  }
+}
