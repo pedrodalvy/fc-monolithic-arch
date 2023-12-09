@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "This project is a practical implementation of Monolithic Architecture concepts using TypeScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix"
   },
   "keywords": [],
   "author": "Pedro Dalvy <pedrodalvy@outlook.com>",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "gts": "5.2.0",
+    "@types/node": "20.8.2"
   }
 }
