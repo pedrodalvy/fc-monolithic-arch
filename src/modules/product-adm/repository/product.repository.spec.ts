@@ -3,9 +3,11 @@ import ProductModel from './product.model';
 import Product from '../domain/product.entity';
 import ID from '../../@shared/domain/value-object/id.value-object';
 import ProductRepository from './product.repository';
+import ProductGateway from '../gateway/product.gateway';
 
 describe('ProductRepository integration test', () => {
   let sequelize: Sequelize;
+  let productRepository: ProductGateway;
 
   beforeEach(async () => {
     sequelize = new Sequelize({
@@ -17,6 +19,8 @@ describe('ProductRepository integration test', () => {
 
     sequelize.addModels([ProductModel]);
     await sequelize.sync();
+
+    productRepository = new ProductRepository();
   });
 
   afterEach(async () => {
@@ -33,8 +37,6 @@ describe('ProductRepository integration test', () => {
       stock: 10,
     });
 
-    const productRepository = new ProductRepository();
-
     // Act
     await productRepository.add(product);
 
@@ -50,5 +52,32 @@ describe('ProductRepository integration test', () => {
       createdAt: product.createdAt,
       updatedAt: product.updatedAt,
     });
+  });
+
+  it('should find a product', async () => {
+    // Arrange
+    const product = new Product({
+      id: new ID(),
+      name: 'Product 1',
+      description: 'Product 1 description',
+      purchasePrice: 100,
+      stock: 10,
+    });
+
+    await productRepository.add(product);
+
+    // Act
+    const result = await productRepository.find(product.id.value);
+
+    // Assert
+    expect(result).toStrictEqual(product);
+  });
+
+  it('should return undefined when product is not found', async () => {
+    // Act
+    const result = await productRepository.find('not-found-id');
+
+    // Assert
+    expect(result).toBeUndefined();
   });
 });
