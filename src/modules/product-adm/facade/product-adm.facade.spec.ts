@@ -1,9 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import ProductModel from '../repository/product.model';
-import ProductRepository from '../repository/product.repository';
-import AddProductUseCase from '../usecase/add-product/add-product.usecase';
-import ProductAdmFacade from './product-adm.facade';
 import { randomUUID } from 'node:crypto';
+import ProductAdmFacadeFactory from '../factory/product-adm-facade.factory';
 
 describe('ProductAdmFacade integration test', () => {
   let sequelize: Sequelize;
@@ -26,9 +24,7 @@ describe('ProductAdmFacade integration test', () => {
 
   it('should add a product', async () => {
     // Arrange
-    const productRepository = new ProductRepository();
-    const addProductUseCase = new AddProductUseCase(productRepository);
-    const productAdmFacade = new ProductAdmFacade(addProductUseCase);
+    const productAdmFacade = ProductAdmFacadeFactory.create();
 
     const input = {
       id: randomUUID(),
