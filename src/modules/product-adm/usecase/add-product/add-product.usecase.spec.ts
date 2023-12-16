@@ -1,4 +1,5 @@
 import { mock } from 'jest-mock-extended';
+
 import ProductGateway from '../../gateway/product.gateway';
 import AddProductUseCase from './add-product.usecase';
 

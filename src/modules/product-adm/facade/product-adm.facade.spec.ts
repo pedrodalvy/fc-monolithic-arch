@@ -1,8 +1,10 @@
-import { Sequelize } from 'sequelize-typescript';
-import ProductModel from '../repository/product.model';
 import { randomUUID } from 'node:crypto';
-import ProductAdmFacadeFactory from '../factory/product-adm-facade.factory';
+
+import { Sequelize } from 'sequelize-typescript';
+
 import Product from '../domain/product.entity';
+import ProductAdmFacadeFactory from '../factory/product-adm-facade.factory';
+import ProductModel from '../repository/product.model';
 
 describe('ProductAdmFacade integration test', () => {
   let sequelize: Sequelize;

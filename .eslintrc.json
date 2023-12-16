@@ -1,7 +1,10 @@
 {
   "extends": "./node_modules/gts/",
+  "plugins": ["simple-import-sort"],
   "rules": {
     "@typescript-eslint/no-empty-interface": "off",
-    "node/no-unpublished-import": "off"
+    "node/no-unpublished-import": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

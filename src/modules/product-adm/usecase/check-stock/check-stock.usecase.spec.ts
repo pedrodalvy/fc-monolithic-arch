@@ -1,7 +1,8 @@
 import { mock } from 'jest-mock-extended';
+
+import Product from '../../domain/product.entity';
 import ProductGateway from '../../gateway/product.gateway';
 import CheckStockUseCase from './check-stock.usecase';
-import Product from '../../domain/product.entity';
 
 describe('CheckStockUseCase unit test', () => {
   const productRepository = mock<ProductGateway>();
