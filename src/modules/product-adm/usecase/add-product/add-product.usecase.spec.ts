@@ -4,7 +4,7 @@ import AddProductUseCase from './add-product.usecase';
 
 describe('AddProductUseCase unit test', () => {
   const productRepository = mock<ProductGateway>();
-  const usecase = new AddProductUseCase(productRepository);
+  const useCase = new AddProductUseCase(productRepository);
 
   it('should add a product', async () => {
     // Arrange
@@ -16,7 +16,7 @@ describe('AddProductUseCase unit test', () => {
     };
 
     // Act
-    const result = await usecase.execute(input);
+    const result = await useCase.execute(input);
 
     // Assert
     expect(productRepository.add).toHaveBeenCalled();
