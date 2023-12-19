@@ -56,4 +56,29 @@ describe('ProductRepository integration test', () => {
     // Assert
     expect(result).toHaveLength(0);
   });
+
+  it('should find a product', async () => {
+    // Arrange
+    await ProductModel.bulkCreate([
+      { id: 'product-a', name: 'Product A', description: 'A', salesPrice: 100 },
+      { id: 'product-b', name: 'Product B', description: 'B', salesPrice: 200 },
+    ]);
+
+    // Act
+    const result = await productRepository.find('product-a');
+
+    // Assert
+    expect(result.id.value).toBe('product-a');
+    expect(result.name).toBe('Product A');
+    expect(result.description).toBe('A');
+    expect(result.salesPrice).toBe(100);
+  });
+
+  it('should return undefined if the product is not found', async () => {
+    // Act
+    const result = await productRepository.find('not-found-id');
+
+    // Assert
+    expect(result).toBeUndefined();
+  });
 });
