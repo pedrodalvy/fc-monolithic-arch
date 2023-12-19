@@ -1,28 +1,17 @@
-import { Sequelize } from 'sequelize-typescript';
-
+import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
 import ProductModel from './product.model';
 import ProductRepository from './product.repository';
 
 describe('ProductRepository integration test', () => {
-  let sequelize: Sequelize;
   let productRepository: ProductRepository;
 
   beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      logging: false,
-      sync: { force: true },
-    });
-
-    sequelize.addModels([ProductModel]);
-    await sequelize.sync();
-
+    await SequelizeHelper.createDatabase([ProductModel]);
     productRepository = new ProductRepository();
   });
 
   afterEach(async () => {
-    await sequelize.close();
+    await SequelizeHelper.destroyDatabase();
   });
 
   it('should find all products', async () => {

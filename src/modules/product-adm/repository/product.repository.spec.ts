@@ -1,31 +1,20 @@
-import { Sequelize } from 'sequelize-typescript';
-
 import ID from '../../@shared/domain/value-object/id.value-object';
+import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
 import Product from '../domain/product.entity';
 import ProductGateway from '../gateway/product.gateway';
 import ProductModel from './product.model';
 import ProductRepository from './product.repository';
 
 describe('ProductRepository integration test', () => {
-  let sequelize: Sequelize;
   let productRepository: ProductGateway;
 
   beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      logging: false,
-      sync: { force: true },
-    });
-
-    sequelize.addModels([ProductModel]);
-    await sequelize.sync();
-
+    await SequelizeHelper.createDatabase([ProductModel]);
     productRepository = new ProductRepository();
   });
 
   afterEach(async () => {
-    await sequelize.close();
+    await SequelizeHelper.destroyDatabase();
   });
 
   it('should create a product', async () => {
