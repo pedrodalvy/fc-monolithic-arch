@@ -8,7 +8,7 @@ describe('CheckStockUseCase unit test', () => {
   const productRepository = mock<ProductGateway>();
   const useCase = new CheckStockUseCase(productRepository);
 
-  it('should check stock', async () => {
+  it('should get stock of a product', async () => {
     // Arrange
     const product = new Product({
       name: 'Product 1',
@@ -23,6 +23,7 @@ describe('CheckStockUseCase unit test', () => {
     const result = await useCase.execute({ productId: product.id.value });
 
     // Assert
+    expect(productRepository.find).toHaveBeenCalledWith(product.id.value);
     expect(result.productId).toBe(product.id.value);
     expect(result.stock).toBe(product.stock);
   });
