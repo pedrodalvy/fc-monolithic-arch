@@ -5,6 +5,6 @@ interface Product {
   salesPrice: number;
 }
 
-export interface FindAllProductsOutputDTO {
+export interface FindAllProductsFacadeOutputDTO {
   products: Product[];
 }
