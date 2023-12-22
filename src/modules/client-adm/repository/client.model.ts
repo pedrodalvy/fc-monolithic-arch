@@ -1,7 +1,7 @@
 import { Column, CreatedAt, IsUUID, Model, Table, UpdatedAt } from 'sequelize-typescript';
 
-@Table({ tableName: 'products', timestamps: false })
-export default class ProductModel extends Model {
+@Table({ tableName: 'clients', timestamps: false })
+export default class ClientModel extends Model {
   @IsUUID(4)
   @Column({ allowNull: false, primaryKey: true })
   id: string;
@@ -10,13 +10,10 @@ export default class ProductModel extends Model {
   name: string;
 
   @Column({ allowNull: false })
-  description: string;
+  email: string;
 
   @Column({ allowNull: false })
-  purchasePrice: number;
-
-  @Column({ allowNull: false })
-  stock: number;
+  address: string;
 
   @CreatedAt
   @Column({ allowNull: false })
