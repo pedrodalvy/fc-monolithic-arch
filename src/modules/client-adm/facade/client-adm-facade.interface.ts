@@ -1,6 +1,4 @@
-import { AddClientFacadeInputDTO } from './dto/add-client-facade-input.dto';
-import { FindClientFacadeInputDTO } from './dto/find-client-facade-input.dto';
-import { FindClientFacadeOutputDTO } from './dto/find-client-facade-output.dto';
+import { AddClientFacadeInputDTO, FindClientFacadeInputDTO, FindClientFacadeOutputDTO } from './client-adm-facade.dto';
 
 export default interface ClientAdmFacadeInterface {
   addClient(input: AddClientFacadeInputDTO): Promise<void>;
