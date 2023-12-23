@@ -15,7 +15,7 @@ export default class InvoiceItem extends BaseEntity implements AggregateRoot {
   private readonly _price: number;
 
   constructor(props: CreateInvoiceItem) {
-    super(props.id);
+    super(props.id, props.createdAt, props.updatedAt);
 
     this._name = props.name;
     this._price = props.price;
