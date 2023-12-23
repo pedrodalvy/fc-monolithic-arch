@@ -1,6 +1,5 @@
 import UseCaseInterface from '../../@shared/usecase/use-case.interface';
-import { ProcessPaymentFacadeInputDTO } from './dto/process-payment-facade-input.dto';
-import { ProcessPaymentFacadeOutputDTO } from './dto/process-payment-facade-output.dto';
+import { ProcessPaymentFacadeInputDTO, ProcessPaymentFacadeOutputDTO } from './payment-facade.dto';
 import PaymentFacadeInterface from './payment-facade.interface';
 
 export default class PaymentFacade implements PaymentFacadeInterface {

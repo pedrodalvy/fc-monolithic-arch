@@ -1,5 +1,4 @@
-import { ProcessPaymentFacadeInputDTO } from './dto/process-payment-facade-input.dto';
-import { ProcessPaymentFacadeOutputDTO } from './dto/process-payment-facade-output.dto';
+import { ProcessPaymentFacadeInputDTO, ProcessPaymentFacadeOutputDTO } from './payment-facade.dto';
 
 export default interface PaymentFacadeInterface {
   process(input: ProcessPaymentFacadeInputDTO): Promise<ProcessPaymentFacadeOutputDTO>;
