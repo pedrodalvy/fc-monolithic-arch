@@ -1,8 +1,10 @@
-import AddProductInputDTO from './dto/add-product-input.dto';
-import CheckStockInputDTO from './dto/check-stock-input.dto';
-import CheckStockOutputDTO from './dto/check-stock-output.dto';
+import {
+  AddProductFacadeInputDTO,
+  CheckStockFacadeInputDTO,
+  CheckStockFacadeOutputDTO,
+} from './product-adm-facade.dto';
 
 export default interface ProductAdmFacadeInterface {
-  addProduct(input: AddProductInputDTO): Promise<void>;
-  checkStock(input: CheckStockInputDTO): Promise<CheckStockOutputDTO>;
+  addProduct(input: AddProductFacadeInputDTO): Promise<void>;
+  checkStock(input: CheckStockFacadeInputDTO): Promise<CheckStockFacadeOutputDTO>;
 }
