@@ -1,8 +1,10 @@
 import UseCaseInterface from '../../@shared/usecase/use-case.interface';
 import { FindProductInputDTO, FindProductOutputDTO } from '../usecase/find-product/find-product.dto';
-import { FindAllProductsFacadeOutputDTO } from './dto/find-all-products-output.dto';
-import { FindProductFacadeInputDTO } from './dto/find-product-facade-input.dto';
-import { FindProductFacadeOutputDTO } from './dto/find-product-facade-output.dto';
+import {
+  FindAllProductsFacadeOutputDTO,
+  FindProductFacadeInputDTO,
+  FindProductFacadeOutputDTO,
+} from './store-catalog.facade.dto';
 import StoreCatalogFacadeInterface from './store-catalog.facade.interface';
 
 export default class StoreCatalogFacade implements StoreCatalogFacadeInterface {
