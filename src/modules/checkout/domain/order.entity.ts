@@ -41,6 +41,10 @@ export default class Order extends BaseEntity {
     this._status = 'approved';
   }
 
+  rejected(): void {
+    this._status = 'rejected';
+  }
+
   get total(): number {
     return this._products.reduce((total, product) => total + product.salesPrice, 0);
   }
