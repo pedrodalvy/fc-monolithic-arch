@@ -8,7 +8,9 @@ export default class FindInvoiceUseCase implements UseCaseInterface<InputDTO, Ou
   async execute(input: InputDTO): Promise<OutputDTO> {
     const invoice = await this.invoiceRepository.find(input.id);
 
-    if (!invoice) throw new Error('Invoice not found');
+    if (!invoice) {
+      throw new Error('Invoice not found');
+    }
 
     return {
       id: invoice.id.value,

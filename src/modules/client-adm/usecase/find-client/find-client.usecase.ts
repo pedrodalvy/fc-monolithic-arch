@@ -8,7 +8,9 @@ export default class FindClientUseCase implements UseCaseInterface<InputDTO, Out
   async execute(input: InputDTO): Promise<OutputDTO> {
     const client = await this.clientRepository.find(input.id);
 
-    if (!client) throw new Error('Client not found');
+    if (!client) {
+      throw new Error('Client not found');
+    }
 
     return {
       id: client.id.value,
