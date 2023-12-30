@@ -181,13 +181,13 @@ describe('PlaceOrderUseCase unit test', () => {
       expect(invoiceFacade.generate).toHaveBeenCalledTimes(1);
       expect(invoiceFacade.generate).toHaveBeenCalledWith({
         name: client.name,
-        document: '',
-        street: '',
-        number: '',
-        complement: '',
-        city: '',
-        state: '',
-        zipCode: '',
+        document: client.document,
+        street: client.street,
+        number: client.number,
+        complement: client.complement,
+        city: client.city,
+        state: client.state,
+        zipCode: client.zipCode,
         items: [
           {
             id: products[0].id,

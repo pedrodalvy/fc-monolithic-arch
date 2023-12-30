@@ -31,7 +31,7 @@ export default class PlaceOrderUseCase implements UseCaseInterface<InputDTO, Out
     await this._validateProducts(input);
 
     const orderProducts = await Promise.all(input.products.map(product => this._getProduct(product.productId)));
-    const orderClient = new Client({ id: new ID(client.id), name: client.name });
+    const orderClient = new Client({ ...client, id: new ID(client.id) });
     const order = new Order({ client: orderClient, products: orderProducts });
     const payment = await this.paymentFacade.process({ orderId: order.id.value, amount: order.total });
 
@@ -42,13 +42,13 @@ export default class PlaceOrderUseCase implements UseCaseInterface<InputDTO, Out
 
       invoice = await this.invoiceFacade.generate({
         name: order.client.name,
-        document: '',
-        street: '',
-        number: '',
-        complement: '',
-        city: '',
-        state: '',
-        zipCode: '',
+        document: order.client.document,
+        street: order.client.street,
+        number: order.client.number,
+        complement: order.client.complement,
+        city: order.client.city,
+        state: order.client.state,
+        zipCode: order.client.zipCode,
         items: order.products.map(product => ({
           id: product.id.value,
           name: product.name,
