@@ -12,7 +12,13 @@ describe('AddClientUseCase unit test', () => {
     const input = {
       name: 'Client 1',
       email: 'a@a.com',
-      address: 'address 1',
+      document: '123456789',
+      street: 'street 1',
+      number: '123',
+      complement: 'complement 1',
+      city: 'city 1',
+      state: 'state 1',
+      zipCode: '12345678',
     };
 
     // Act
@@ -24,7 +30,13 @@ describe('AddClientUseCase unit test', () => {
       id: expect.any(String),
       name: input.name,
       email: input.email,
-      address: input.address,
+      document: input.document,
+      street: input.street,
+      number: input.number,
+      complement: input.complement,
+      city: input.city,
+      state: input.state,
+      zipCode: input.zipCode,
       createdAt: expect.any(Date),
       updatedAt: expect.any(Date),
     });
