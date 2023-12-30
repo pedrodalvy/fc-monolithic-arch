@@ -31,8 +31,6 @@ export default class PlaceOrderUseCase implements UseCaseInterface<InputDTO, Out
     const orderClient = new Client({
       id: new ID(client.id),
       name: client.name,
-      email: client.email,
-      address: client.address,
       createdAt: client.createdAt,
       updatedAt: client.updatedAt,
     });
@@ -71,7 +69,7 @@ export default class PlaceOrderUseCase implements UseCaseInterface<InputDTO, Out
 
     return {
       id: order.id.value,
-      invoiceId: payment.status === 'approved' ? invoice?.id : undefined,
+      invoiceId: invoice?.id,
       status: order.status,
       total: order.total,
       products: order.products.map(product => ({
@@ -100,7 +98,6 @@ export default class PlaceOrderUseCase implements UseCaseInterface<InputDTO, Out
     return new Product({
       id: new ID(product.id),
       name: product.name,
-      description: product.description,
       salesPrice: product.salesPrice,
     });
   }
