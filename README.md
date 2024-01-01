@@ -45,6 +45,20 @@ Architecture concepts. To run the tests, follow these steps:
     npm run test
     ````
 
+### Running Migrations:
+
+1. Create a migration file using the following command:
+    ````shell
+    npm run migrator:create -- --name create-order-{{tableName}}-table.migration.ts
+    ````
+
+2. Run the migrations using the following command:
+    ````shell
+    npm run migrator:up
+    ````
+
+
+
 [codecov-image]: https://codecov.io/gh/pedrodalvy/fc-monolithic-arch/graph/badge.svg?token=0UsfmsTG1m
 [codecov-url]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd
 [sonar-image]: https://sonarcloud.io/api/project_badges/measure?project=pedrodalvy_fc-monolithic-arch&metric=alert_status

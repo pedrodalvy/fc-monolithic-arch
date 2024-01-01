@@ -7,7 +7,10 @@
     "clean": "gts clean",
     "compile": "tsc",
     "fix": "gts fix",
-    "test": "jest"
+    "test": "jest",
+    "migrator": "node -r ts-node/register/transpile-only ./src/infrastructure/sequelize/migrations/config/migrator-cli.ts",
+    "migrator:create": "npm run migrator -- create --folder src/infrastructure/sequelize/migrations",
+    "migrator:up": "npm run migrator -- up"
   },
   "keywords": [],
   "author": "Pedro Dalvy <pedrodalvy@outlook.com>",
@@ -15,18 +18,21 @@
   "devDependencies": {
     "@types/jest": "29.5.11",
     "@types/node": "20.8.2",
+    "@types/umzug": "2.3.7",
     "@types/validator": "13.11.7",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "gts": "5.2.0",
     "jest": "29.7.0",
     "jest-mock-extended": "3.0.5",
-    "sqlite3": "5.1.6",
     "ts-jest": "29.1.1",
     "typescript": "5.3.3"
   },
   "dependencies": {
     "reflect-metadata": "0.1.14",
     "sequelize": "6.35.2",
-    "sequelize-typescript": "2.1.6"
+    "sequelize-typescript": "2.1.6",
+    "sqlite3": "5.1.6",
+    "ts-node": "10.9.2",
+    "umzug": "3.5.0"
   }
 }

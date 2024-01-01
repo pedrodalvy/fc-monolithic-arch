@@ -1,4 +1,4 @@
-import { Column, IsUUID, Model, Table } from 'sequelize-typescript';
+import { Column, CreatedAt, IsUUID, Model, Table, UpdatedAt } from 'sequelize-typescript';
 
 @Table({
   tableName: 'products',
@@ -17,4 +17,12 @@ export default class ProductModel extends Model {
 
   @Column({ allowNull: false })
   salesPrice: number;
+
+  @CreatedAt
+  @Column({ defaultValue: new Date() })
+  createdAt: Date;
+
+  @UpdatedAt
+  @Column({ defaultValue: new Date() })
+  updatedAt: Date;
 }

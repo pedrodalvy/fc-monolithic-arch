@@ -1,4 +1,4 @@
-import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
+import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
 import PaymentFacadeFactory from '../factory/payment-facade.factory';
 import TransactionModel from '../repository/transaction.model';
 

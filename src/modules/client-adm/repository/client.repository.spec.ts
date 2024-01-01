@@ -1,5 +1,5 @@
+import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
 import ID from '../../@shared/domain/value-object/id.value-object';
-import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
 import Client from '../domain/client.entity';
 import ClientGateway from '../gateway/client.gateway';
 import ClientModel from './client.model';
