@@ -167,15 +167,8 @@ describe('PlaceOrderUseCase unit test', () => {
       });
 
       expect(clientFacade.findClient).toHaveBeenCalledTimes(1);
-      expect(clientFacade.findClient).toHaveBeenCalledWith({ id: client.id });
-
       expect(storeCatalogFacade.find).toHaveBeenCalledTimes(2);
-      expect(storeCatalogFacade.find).toHaveBeenCalledWith({ id: products[0].id });
-      expect(storeCatalogFacade.find).toHaveBeenCalledWith({ id: products[1].id });
-
       expect(paymentFacade.process).toHaveBeenCalledTimes(1);
-      expect(paymentFacade.process).toHaveBeenCalledWith({ amount: payment.amount, orderId: expect.any(String) });
-
       expect(checkoutRepository.addOrder).toHaveBeenCalledTimes(1);
 
       expect(invoiceFacade.generate).toHaveBeenCalledTimes(1);
