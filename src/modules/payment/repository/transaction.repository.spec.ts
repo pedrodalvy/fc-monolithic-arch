@@ -1,4 +1,4 @@
-import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
+import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
 import Transaction from '../domain/transaction';
 import TransactionModel from './transaction.model';
 import TransactionRepository from './transaction.repository';

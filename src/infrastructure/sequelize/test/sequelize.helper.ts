@@ -1,25 +1,28 @@
 import { Sequelize } from 'sequelize-typescript';
 import { ModelCtor } from 'sequelize-typescript/dist/model/model/model';
+import { Umzug } from 'umzug';
+
+import { migrator } from '../migrations/config/migrator';
 
 export default class SequelizeHelper {
   private static _sequelize: Sequelize;
+  private static _migrator: Umzug<any>;
 
   static async createDatabase(models: ModelCtor[]) {
-    const sequelize = new Sequelize({
+    this._sequelize = new Sequelize({
       dialect: 'sqlite',
       storage: ':memory:',
       logging: false,
-      sync: { force: true },
     });
+    this._sequelize.addModels(models);
 
-    sequelize.addModels(models);
-    await sequelize.sync();
-
-    this._sequelize = sequelize;
+    this._migrator = migrator(this._sequelize, undefined);
+    await this._migrator.up();
   }
 
   static async destroyDatabase() {
-    if (this._sequelize) {
+    if (this._sequelize && this._migrator) {
+      await this._migrator.down();
       await this._sequelize.close();
     }
   }

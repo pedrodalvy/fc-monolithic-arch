@@ -1,5 +1,5 @@
+import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
 import Address from '../../@shared/domain/value-object/address.value-object';
-import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
 import Invoice from '../domain/invoice';
 import InvoiceItem from '../domain/invoice-item';
 import InvoiceModel from './invoice.model';

@@ -1,4 +1,6 @@
-import SequelizeHelper from '../../@shared/test/repository/sequelize.helper';
+import { randomUUID } from 'node:crypto';
+
+import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
 import ProductModel from './product.model';
 import ProductRepository from './product.repository';
 
@@ -16,10 +18,9 @@ describe('ProductRepository integration test', () => {
 
   it('should find all products', async () => {
     // Arrange
-    await ProductModel.bulkCreate([
-      { id: 'product-a', name: 'Product A', description: 'A', salesPrice: 100 },
-      { id: 'product-b', name: 'Product B', description: 'B', salesPrice: 200 },
-    ]);
+    const productA = { id: randomUUID(), name: 'Product A', description: 'A', salesPrice: 100 };
+    const productB = { id: randomUUID(), name: 'Product B', description: 'B', salesPrice: 200 };
+    await ProductModel.bulkCreate([productA, productB]);
 
     // Act
     const result = await productRepository.findAll();
@@ -27,15 +28,15 @@ describe('ProductRepository integration test', () => {
     // Assert
     expect(result).toHaveLength(2);
 
-    expect(result[0].id.value).toBe('product-a');
-    expect(result[0].name).toBe('Product A');
-    expect(result[0].description).toBe('A');
-    expect(result[0].salesPrice).toBe(100);
+    expect(result[0].id.value).toBe(productA.id);
+    expect(result[0].name).toBe(productA.name);
+    expect(result[0].description).toBe(productA.description);
+    expect(result[0].salesPrice).toBe(productA.salesPrice);
 
-    expect(result[1].id.value).toBe('product-b');
-    expect(result[1].name).toBe('Product B');
-    expect(result[1].description).toBe('B');
-    expect(result[1].salesPrice).toBe(200);
+    expect(result[1].id.value).toBe(productB.id);
+    expect(result[1].name).toBe(productB.name);
+    expect(result[1].description).toBe(productB.description);
+    expect(result[1].salesPrice).toBe(productB.salesPrice);
   });
 
   it('should return an empty array if no products are found', async () => {
@@ -48,19 +49,18 @@ describe('ProductRepository integration test', () => {
 
   it('should find a product', async () => {
     // Arrange
-    await ProductModel.bulkCreate([
-      { id: 'product-a', name: 'Product A', description: 'A', salesPrice: 100 },
-      { id: 'product-b', name: 'Product B', description: 'B', salesPrice: 200 },
-    ]);
+    const productA = { id: randomUUID(), name: 'Product A', description: 'A', salesPrice: 100 };
+    const productB = { id: randomUUID(), name: 'Product B', description: 'B', salesPrice: 200 };
+    await ProductModel.bulkCreate([productA, productB]);
 
     // Act
-    const result = await productRepository.find('product-a');
+    const result = await productRepository.find(productA.id);
 
     // Assert
-    expect(result.id.value).toBe('product-a');
-    expect(result.name).toBe('Product A');
-    expect(result.description).toBe('A');
-    expect(result.salesPrice).toBe(100);
+    expect(result.id.value).toBe(productA.id);
+    expect(result.name).toBe(productA.name);
+    expect(result.description).toBe(productA.description);
+    expect(result.salesPrice).toBe(productA.salesPrice);
   });
 
   it('should return undefined if the product is not found', async () => {

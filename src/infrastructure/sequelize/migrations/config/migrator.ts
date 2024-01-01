@@ -2,7 +2,7 @@ import { join } from 'path';
 import { Sequelize } from 'sequelize';
 import { SequelizeStorage, Umzug } from 'umzug';
 
-export const migrator = (sequelize: Sequelize) => {
+export const migrator = (sequelize: Sequelize, logger: any) => {
   return new Umzug({
     migrations: {
       glob: [
@@ -15,6 +15,6 @@ export const migrator = (sequelize: Sequelize) => {
     },
     context: sequelize,
     storage: new SequelizeStorage({ sequelize }),
-    logger: console,
+    logger,
   });
 };

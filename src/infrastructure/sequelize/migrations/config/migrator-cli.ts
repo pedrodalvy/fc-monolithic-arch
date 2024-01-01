@@ -8,4 +8,4 @@ const sequelize = new Sequelize({
   storage: join(__dirname, '../../../../../database.sqlite'),
 });
 
-migrator(sequelize).runAsCLI();
+migrator(sequelize, console).runAsCLI();
