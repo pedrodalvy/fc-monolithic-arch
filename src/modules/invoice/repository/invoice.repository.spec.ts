@@ -1,4 +1,4 @@
-import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
+import SequelizeHelper from '../../../infrastructure/database/sequelize/test/sequelize.helper';
 import Address from '../../@shared/domain/value-object/address.value-object';
 import Invoice from '../domain/invoice';
 import InvoiceItem from '../domain/invoice-item';

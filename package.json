@@ -8,8 +8,8 @@
     "compile": "tsc",
     "fix": "gts fix",
     "test": "jest",
-    "migrator": "node -r ts-node/register/transpile-only ./src/infrastructure/sequelize/migrations/config/migrator-cli.ts",
-    "migrator:create": "npm run migrator -- create --folder src/infrastructure/sequelize/migrations",
+    "migrator": "node -r ts-node/register/transpile-only src/infrastructure/database/sequelize/migrations/config/migrator-cli.ts",
+    "migrator:create": "npm run migrator -- create --folder src/infrastructure/database/sequelize/migrations",
     "migrator:up": "npm run migrator -- up"
   },
   "keywords": [],

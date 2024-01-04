@@ -6,9 +6,9 @@ export const migrator = (sequelize: Sequelize, logger: any) => {
   return new Umzug({
     migrations: {
       glob: [
-        'src/infrastructure/sequelize/migrations/*.migration.{js,ts}',
+        'src/infrastructure/database/sequelize/migrations/*.migration.{js,ts}',
         {
-          cwd: join(__dirname, '../../../../../'),
+          cwd: join(__dirname, '../../../../../../'),
           ignore: ['**/*.d.ts', '**/index.ts', '**/index.js'],
         },
       ],

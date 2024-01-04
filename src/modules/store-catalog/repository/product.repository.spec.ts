@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
+import SequelizeHelper from '../../../infrastructure/database/sequelize/test/sequelize.helper';
 import ProductModel from './product.model';
 import ProductRepository from './product.repository';
 

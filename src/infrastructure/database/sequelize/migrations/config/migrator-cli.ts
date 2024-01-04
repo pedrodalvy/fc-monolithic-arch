@@ -5,7 +5,7 @@ import { migrator } from './migrator';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: join(__dirname, '../../../../../database.sqlite'),
+  storage: join(__dirname, '../../../../../../database.sqlite'),
 });
 
 migrator(sequelize, console).runAsCLI();

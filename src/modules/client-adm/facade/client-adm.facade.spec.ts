@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import SequelizeHelper from '../../../infrastructure/sequelize/test/sequelize.helper';
+import SequelizeHelper from '../../../infrastructure/database/sequelize/test/sequelize.helper';
 import ClientAdmFacadeFactory from '../factory/client-adm-facade.factory';
 import ClientModel from '../repository/client.model';
 
