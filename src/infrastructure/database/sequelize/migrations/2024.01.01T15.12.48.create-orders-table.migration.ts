@@ -25,6 +25,10 @@ export const up: MigrationFn<Sequelize> = async params => {
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   });
 };
 

@@ -1,7 +1,7 @@
 import { FindClientFacadeOutputDTO } from '../../../../client-adm/facade/client-adm-facade.dto';
 import { GenerateInvoiceFacadeOutputDTO } from '../../../../invoice/facade/invoice-facade.dto';
+import { ProcessPaymentFacadeOutputDTO } from '../../../../payment/facade/payment-facade.dto';
 import { FindProductFacadeOutputDTO } from '../../../../store-catalog/facade/store-catalog.facade.dto';
-import { ProcessPaymentFacadeOutputDTO } from './../../../../payment/facade/payment-facade.dto';
 
 export const findClientFacadeMock: () => FindClientFacadeOutputDTO = () => ({
   id: 'client-id',
