@@ -12,7 +12,7 @@ const config = {
   coverageReporters: ['lcov', 'text', 'clover'],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  testRegex: '.*\\.spec\\.ts$',
+  testRegex: '.*\\.*spec\\.ts$',
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },

@@ -9,6 +9,7 @@
     "fix": "gts fix",
     "test": "jest",
     "test:e2e": "jest --config ./jest-e2e.config.js",
+    "test:unit": "jest --testRegex '.*\\.*spec\\.ts$'",
     "migrator": "node -r ts-node/register/transpile-only src/infrastructure/database/sequelize/migrations/config/migrator-cli.ts",
     "migrator:create": "npm run migrator -- create --folder src/infrastructure/database/sequelize/migrations",
     "migrator:up": "npm run migrator -- up",
