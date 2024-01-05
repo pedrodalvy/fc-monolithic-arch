@@ -17,4 +17,16 @@ Accept: application/json
   "zipCode": "123456"
 }
 
-###
+### Create Product
+# @no-log
+POST http://localhost:3000/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{$random.uuid}}",
+  "name": "Product Name",
+  "description": "Product Description",
+  "purchasePrice": 100,
+  "stock": 10
+}
