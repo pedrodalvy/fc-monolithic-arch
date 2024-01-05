@@ -32,7 +32,7 @@ describe('Client Routes - E2E tests', () => {
     // Act
     const { status, body } = await request(app).post('/clients').send(requestBody);
 
-    expect(status).toBe(204);
+    expect(status).toBe(201);
     expect(body).toEqual({});
   });
 });

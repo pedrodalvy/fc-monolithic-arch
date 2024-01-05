@@ -24,7 +24,7 @@ clientRouter.post('/', async (req: Request, res: Response) => {
 
     await facade.addClient(requestBody);
 
-    res.status(204).send();
+    res.status(201).send();
   } catch (err) {
     console.error('clientRouter - POST', err);
     res.status(500).send({ error: 'Internal Server Error' });

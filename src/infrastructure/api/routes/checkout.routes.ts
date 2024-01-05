@@ -16,7 +16,7 @@ checkoutRouter.post('/', async (req: Request, res: Response) => {
 
     const output = await facade.placeOrder(requestBody);
 
-    res.status(200).send(output);
+    res.status(201).send(output);
   } catch (err) {
     console.error('checkoutRouter - POST', err);
     res.status(500).send({ error: 'Internal Server Error' });

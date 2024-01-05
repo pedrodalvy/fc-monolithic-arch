@@ -55,7 +55,7 @@ describe('Checkout Routes - E2E tests', () => {
     const { status, body } = await request(app).post('/checkout').send(placeOrderRequestBody);
 
     // Assert
-    expect(status).toBe(200);
+    expect(status).toBe(201);
     expect(body).toEqual({
       id: expect.any(String),
       invoiceId: expect.any(String),

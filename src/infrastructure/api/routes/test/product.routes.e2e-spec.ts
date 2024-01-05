@@ -27,7 +27,7 @@ describe('Product Routes - E2E tests', () => {
     // Act
     const { status, body } = await request(app).post('/products').send(requestBody);
 
-    expect(status).toBe(204);
+    expect(status).toBe(201);
     expect(body).toEqual({});
   });
 });
