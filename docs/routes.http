@@ -45,3 +45,8 @@ Accept: application/json
     }
   ]
 }
+
+### Find an Invoice
+# @no-log
+GET http://localhost:3000/invoice/{{$random.uuid}}
+Accept: application/json
