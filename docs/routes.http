@@ -30,3 +30,18 @@ Accept: application/json
   "purchasePrice": 100,
   "stock": 10
 }
+
+### Place Order
+# @no-log
+POST http://localhost:3000/checkout
+Content-Type: application/json
+Accept: application/json
+
+{
+  "clientId": "{{$random.uuid}}",
+  "products": [
+    {
+      "productId": "{{$random.uuid}}"
+    }
+  ]
+}
