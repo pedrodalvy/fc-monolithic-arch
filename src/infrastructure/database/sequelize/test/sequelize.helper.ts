@@ -26,4 +26,8 @@ export default class SequelizeHelper {
       await this._sequelize.close();
     }
   }
+
+  static get sequelize() {
+    return this._sequelize;
+  }
 }
