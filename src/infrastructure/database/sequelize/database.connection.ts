@@ -11,14 +11,16 @@ import ProductStoreModel from '../../../modules/store-catalog/repository/product
 import { migrator } from './migrations/config/migrator';
 
 export default class DatabaseConnection {
-  static async connect() {
-    const sequelize = new Sequelize({
+  private static _sequelize: Sequelize;
+
+  static async connect(storagePath = 'database.sqlite') {
+    this._sequelize = new Sequelize({
       dialect: 'sqlite',
-      storage: 'database.sqlite',
+      storage: storagePath,
       logging: false,
     });
 
-    sequelize.addModels([
+    this._sequelize.addModels([
       ClientModel,
       ProductStoreModel,
       ProductAdmModel,
@@ -29,6 +31,12 @@ export default class DatabaseConnection {
       InvoiceItemModel,
     ]);
 
-    await migrator(sequelize, undefined).up();
+    await migrator(this._sequelize, undefined).up();
+  }
+
+  static async disconnect() {
+    if (this._sequelize) {
+      await this._sequelize.close();
+    }
   }
 }
