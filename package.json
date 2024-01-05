@@ -10,12 +10,14 @@
     "test": "jest",
     "migrator": "node -r ts-node/register/transpile-only src/infrastructure/database/sequelize/migrations/config/migrator-cli.ts",
     "migrator:create": "npm run migrator -- create --folder src/infrastructure/database/sequelize/migrations",
-    "migrator:up": "npm run migrator -- up"
+    "migrator:up": "npm run migrator -- up",
+    "start": "node -r ts-node/register/transpile-only src/infrastructure/api/server.ts"
   },
   "keywords": [],
   "author": "Pedro Dalvy <pedrodalvy@outlook.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "4.17.21",
     "@types/jest": "29.5.11",
     "@types/node": "20.8.2",
     "@types/umzug": "2.3.7",
@@ -28,6 +30,7 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
+    "express": "4.18.2",
     "reflect-metadata": "0.1.14",
     "sequelize": "6.35.2",
     "sequelize-typescript": "2.1.6",
