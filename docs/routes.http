@@ -1,0 +1,52 @@
+### Create Client
+# @no-log
+POST http://localhost:3000/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{$random.uuid}}",
+  "name": "Client Name",
+  "email": "client@email.com",
+  "document": "12345678910",
+  "street": "Street Name",
+  "number": "10",
+  "complement": "Some Complement",
+  "city": "City Name",
+  "state": "State",
+  "zipCode": "123456"
+}
+
+### Create Product
+# @no-log
+POST http://localhost:3000/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{$random.uuid}}",
+  "name": "Product Name",
+  "description": "Product Description",
+  "purchasePrice": 100,
+  "stock": 10
+}
+
+### Place Order
+# @no-log
+POST http://localhost:3000/checkout
+Content-Type: application/json
+Accept: application/json
+
+{
+  "clientId": "{{$random.uuid}}",
+  "products": [
+    {
+      "productId": "{{$random.uuid}}"
+    }
+  ]
+}
+
+### Find an Invoice
+# @no-log
+GET http://localhost:3000/invoice/{{$random.uuid}}
+Accept: application/json
