@@ -1,0 +1,20 @@
+### Create Client
+# @no-log
+POST http://localhost:3000/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "{{$random.uuid}}",
+  "name": "Client Name",
+  "email": "client@email.com",
+  "document": "12345678910",
+  "street": "Street Name",
+  "number": "10",
+  "complement": "Some Complement",
+  "city": "City Name",
+  "state": "State",
+  "zipCode": "123456"
+}
+
+###
